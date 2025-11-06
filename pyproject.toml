@@ -1,0 +1,7 @@
+[project]
+name = "molnav"
+version = "0.1.0"
+description = "MolNav (Molecular Navigator): Navigating the future of molecular modeling."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
