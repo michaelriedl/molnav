@@ -155,3 +155,18 @@ configs/local/default.yaml
 
 # Aim logging
 .aim
+
+# Sphinx build outputs
+build/
+_build/
+
+# Generated API documentation
+source/_autosummary/
+
+# Sphinx cache
+source/.doctrees/
+.doctrees/
+
+# Backup files
+*~
+*.bak

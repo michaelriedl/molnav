@@ -18,6 +18,28 @@ uv sync --all-extras
 
 Note: MolNav is not yet available on PyPI, so you need to install it from source.
 
+## Documentation
+To build the documentation locally, follow these steps:
+
+```bash
+# One-time setup
+uv sync --all-extras
+
+# Build documentation
+cd docs
+make html
+
+# Or using sphinx-build directly
+uv run sphinx-build -b html source build/html
+```
+
+then you can view the built documentation by opening:
+
+```bash
+# Navigate to:
+docs/build/html/index.html
+```
+
 ## Citations
 If you use MolNav in your work, please cite it as follows:
 ```bibtex
