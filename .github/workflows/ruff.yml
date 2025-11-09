@@ -23,15 +23,9 @@ jobs:
 
       - name: Install uv
         uses: astral-sh/setup-uv@v7
-
-      - name: Restore uv cache
-        uses: actions/cache@v4
         with:
-          path: /tmp/.uv-cache
-          key: uv-${{ runner.os }}-ruff-${{ hashFiles('uv.lock') }}
-          restore-keys: |
-            uv-${{ runner.os }}-ruff-${{ hashFiles('uv.lock') }}
-            uv-${{ runner.os }}-ruff-
+          enable-cache: true
+          cache-suffix: "ruff"
 
       - name: Install dependencies
         run: |
