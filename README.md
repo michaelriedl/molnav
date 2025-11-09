@@ -1,4 +1,8 @@
 # MolNav
+![Testing](https://github.com/michaelriedl/molnav/actions/workflows/pytest.yml/badge.svg)
+![Formatting](https://github.com/michaelriedl/molnav/actions/workflows/ruff.yml/badge.svg)
+[![Documentation](https://img.shields.io/badge/Documentation-blue?style=flat&logo=readthedocs)](https://michaelriedl.com/molnav/)
+
 MolNav (Molecular Navigator): Navigating the future of molecular modeling.
 
 This repository implements a number of state-of-the-art deep learning models for molecular modeling using PyTorch.
