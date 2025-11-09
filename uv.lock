@@ -285,10 +285,6 @@ version = "0.1.0"
 source = { virtual = "." }
 
 [package.optional-dependencies]
-dev = [
-    { name = "pytest" },
-    { name = "ruff" },
-]
 docs = [
     { name = "myst-parser" },
     { name = "sphinx" },
@@ -296,16 +292,26 @@ docs = [
     { name = "sphinxawesome-theme" },
 ]
 
+[package.dev-dependencies]
+dev = [
+    { name = "pytest" },
+    { name = "ruff" },
+]
+
 [package.metadata]
 requires-dist = [
     { name = "myst-parser", marker = "extra == 'docs'", specifier = ">=2.0" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
-    { name = "ruff", marker = "extra == 'dev'" },
     { name = "sphinx", marker = "extra == 'docs'", specifier = ">=7.0" },
     { name = "sphinx-autodoc-typehints", marker = "extra == 'docs'", specifier = ">=2.0" },
     { name = "sphinxawesome-theme", marker = "extra == 'docs'" },
 ]
-provides-extras = ["dev", "docs"]
+provides-extras = ["docs"]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "pytest", specifier = ">=8.0" },
+    { name = "ruff" },
+]
 
 [[package]]
 name = "myst-parser"

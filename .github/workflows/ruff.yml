@@ -33,9 +33,9 @@ jobs:
       - name: Run Ruff format check
         run: |
           source .venv/bin/activate
-          ruff format --check molnav
+          uv run ruff format --check molnav
 
       - name: Run Ruff lint check
         run: |
           source .venv/bin/activate
-          ruff check molnav
+          uv run ruff check molnav
