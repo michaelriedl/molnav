@@ -2,8 +2,8 @@
 MolNav: Molecular Navigator
 ============================
 
-MolNav (Molecular Navigator) is a comprehensive Python library for navigating 
-the future of molecular modeling. It implements state-of-the-art deep learning 
+MolNav (Molecular Navigator) is a comprehensive Python library for navigating
+the future of molecular modeling. It implements state-of-the-art deep learning
 models for molecular modeling using PyTorch.
 
 """
