@@ -2,7 +2,7 @@ from rdkit import Chem
 from rdkit.Chem.SaltRemover import SaltRemover
 
 
-def canonicalize_smiles(smiles: str, isomeric: bool = False, kekule: bool = True) -> str:
+def canonicalize_smiles(smiles: str, isomeric: bool = False, kekule: bool = False) -> str:
     """Canonicalize a SMILES string using RDKit's canonicalization algorithm.
 
     This function converts a SMILES (Simplified Molecular Input Line Entry System) string
@@ -12,7 +12,7 @@ def canonicalize_smiles(smiles: str, isomeric: bool = False, kekule: bool = True
 
     The function provides options to control the representation of stereochemistry and
     aromaticity in the output SMILES string. By default, stereochemical information is
-    removed and Kekule form (with explicit double bonds instead of aromatic notation) is used.
+    removed and aromatic notation (lowercase letters for aromatic atoms) is used.
 
     Args:
         smiles: The input SMILES string representing the molecular structure to be canonicalized.
@@ -23,11 +23,11 @@ def canonicalize_smiles(smiles: str, isomeric: bool = False, kekule: bool = True
             output. When set to True, the canonical SMILES will include stereochemical
             descriptors (@, @@, /, \) where applicable. Defaults to False.
         kekule: A flag controlling the representation of aromatic systems in the output.
-            When set to True (default), aromatic rings are represented using alternating
-            single and double bonds (Kekule structure) rather than lowercase aromatic atom
-            symbols. This provides a more explicit representation of the bonding. When set
-            to False, aromatic atoms are represented with lowercase letters (e.g., 'c' for
-            aromatic carbon). Defaults to True.
+            When set to False (default), aromatic atoms are represented with lowercase letters
+            (e.g., 'c' for aromatic carbon), providing a more compact representation. When set
+            to True, aromatic rings are represented using alternating single and double bonds
+            (Kekule structure) rather than lowercase aromatic atom symbols, which provides a
+            more explicit representation of the bonding. Defaults to False.
 
     Returns:
         A canonicalized SMILES string representation of the input molecule. The output
@@ -58,8 +58,9 @@ def desalt_smiles(smiles: str) -> str:
     salts, you can ensure consistent molecular representations for downstream analysis, comparison,
     or machine learning applications.
 
-    Note that the function returns a non-canonical, non-isomeric Kekule SMILES string. If you
-    need a canonical representation, consider using `canonicalize_smiles()` on the output.
+    Note that the function returns a non-canonical, non-isomeric SMILES string using aromatic
+    notation. If you need a canonical representation, consider using `canonicalize_smiles()` on
+    the output.
 
     Args:
         smiles: The input SMILES string that may contain salts, counterions, or solvent molecules
@@ -70,9 +71,9 @@ def desalt_smiles(smiles: str) -> str:
 
     Returns:
         A SMILES string representing the desalted molecular structure with salts and solvents
-        removed. The output is in Kekule form (explicit single/double bonds) without stereochemical
-        information. If the input consists entirely of salt/solvent molecules, the function will
-        preserve at least one fragment to avoid returning an empty result (due to the
+        removed. The output uses aromatic notation (lowercase letters for aromatic atoms) without
+        stereochemical information. If the input consists entirely of salt/solvent molecules, the
+        function will preserve at least one fragment to avoid returning an empty result (due to the
         `dontRemoveEverything=True` parameter).
     """
     # Initialize the salt/solvent remover
@@ -82,6 +83,6 @@ def desalt_smiles(smiles: str) -> str:
     # Remove the salts/solvents
     mol = remover.StripMol(mol, dontRemoveEverything=True)
     # Convert back to SMILES
-    smiles = Chem.MolToSmiles(mol, canonical=False, isomericSmiles=False, kekuleSmiles=True)
+    smiles = Chem.MolToSmiles(mol, canonical=False, isomericSmiles=False, kekuleSmiles=False)
 
     return smiles
