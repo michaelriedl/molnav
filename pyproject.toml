@@ -4,10 +4,10 @@ version = "0.1.0"
 description = "MolNav (Molecular Navigator): Navigating the future of molecular modeling."
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = ["rdkit>=2025.9.1", "torch>=2.9.0"]
 
 [dependency-groups]
-dev = ["pytest>=8.0", "ruff"]
+dev = ["pytest>=8.0", "pytest-cov>=5.0", "ruff"]
 
 [project.optional-dependencies]
 docs = [
@@ -16,6 +16,10 @@ docs = [
     "sphinx-autodoc-typehints>=2.0",
     "myst-parser>=2.0",              # For Markdown support
 ]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.ruff]
 line-length = 100
