@@ -1,6 +1,0 @@
-﻿molnav
-======
-
-.. automodule:: molnav
-
-   
