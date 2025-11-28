@@ -114,7 +114,7 @@ def sanitize_smiles(smiles: str) -> str:
         smiles: The input SMILES string to sanitize. This may represent a molecule with
             associated salts, counterions, or solvents (indicated by '.' separators in the
             SMILES), or a molecule in non-canonical form. The string should be valid and
-            parseable by RDKit's molecular structure parser.
+            parsable by RDKit's molecular structure parser.
 
     Returns:
         A sanitized SMILES string representing the main molecular structure in canonical form.
