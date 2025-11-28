@@ -10,7 +10,7 @@ models for molecular modeling using PyTorch.
 
 __version__ = "0.1.0"
 __author__ = "Michael Riedl"
-__email__ = "michael@example.com"
+__email__ = "michael@michaelriedl.com"
 
 __all__ = [
     "__version__",
