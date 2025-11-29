@@ -14,7 +14,8 @@ CLS_TOKEN : str
 
 EDGE_TOKEN : str
     Edge token ("[EDGE]"). Used in graph-based molecular representations to denote
-    connections or edges between molecular substructures or nodes.
+    connections or edges between molecular substructures or nodes. Can also be used
+    to denote the start and end of a SMILES string.
 
 PAD_TOKEN : str
     Padding token ("[PAD]"). Used to pad sequences to a uniform length when batching
@@ -29,7 +30,8 @@ MASK_TOKEN : str
 SEP_TOKEN : str
     Separator token ("[SEP]"). Used to separate different segments or sequences in
     multi-sequence tasks, such as when processing multiple molecules or different
-    parts of a molecular structure.
+    parts of a molecular structure. This is also used for self-supervised pre-training
+    tasks like next sentence prediction.
 
 Examples
 --------

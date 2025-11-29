@@ -8,18 +8,12 @@ The vocabulary system is designed to support token-based representations of mole
 structures, enabling consistent encoding and decoding of SMILES strings for downstream
 tasks such as molecular property prediction, generation, and analysis.
 
-Functions
----------
-load_vocab_text_file : callable
-    Load a vocabulary from a text file and return as dict or DataFrame.
-
 Provided Vocabulary Files
 --------------------------
-vocab_molnav_tok_base.txt
-    Base vocabulary file containing standard molecular tokens used in SMILES strings.
-    This vocabulary includes common atoms, bonds, brackets, and special tokens needed
-    for tokenizing molecular representations. It serves as the foundation for molecular
-    tokenization in the molnav package.
+vocab_moltransformer_tok_base.txt
+    Base Molecular Transformer vocabulary file containing standard molecular tokens used in SMILES
+    strings. These tokens are derived from the Molecular Transformer tokenization scheme and include
+    common atoms, bonds, and special characters found in SMILES representations.
 
 Standard Tokens
 ---------------
