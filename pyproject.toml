@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "MolNav (Molecular Navigator): Navigating the future of molecular modeling."
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = ["rdkit>=2025.9.1", "torch>=2.9.0"]
+dependencies = ["rdkit>=2025.9.1", "torch>=2.9.0", "numpy", "pandas"]
 
 [dependency-groups]
 dev = ["pytest>=8.0", "pytest-cov>=5.0", "ruff"]
