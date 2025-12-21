@@ -7,7 +7,7 @@ from .vocab.standard_tokens import CLS_TOKEN, PAD_TOKEN, EDGE_TOKEN
 
 
 def smiles_tokenizer(smiles: str) -> list:
-    """Tokenize a SMILES string into its constituent molecular components.
+    r"""Tokenize a SMILES string into its constituent molecular components.
 
     This function breaks down a SMILES (Simplified Molecular Input Line Entry System) string
     into individual tokens representing atoms, bonds, rings, branches, and other structural
@@ -43,8 +43,8 @@ def smiles_tokenizer(smiles: str) -> list:
     """
     # Tokenization pattern from Molecular Transformer - Schwaller et al., 2019
     pattern = (
-        "(\[[^\]]+]|Br?|Cl?|N|O|S|P|F|I|b|c|n|o|s|p|"
-        "\(|\)|\.|=|#|-|\+|\\\\|\/|:|~|@|\?|>|\*|\$|\%[0-9]{2}|[0-9])"
+        r"(\[[^\]]+]|Br?|Cl?|N|O|S|P|F|I|b|c|n|o|s|p|"
+        r"\(|\)|\.|=|#|-|\+|\\|\/|:|~|@|\?|>|\*|\$|\%[0-9]{2}|[0-9])"
     )
     regex = re.compile(pattern)
     tokens = [token for token in regex.findall(smiles)]
